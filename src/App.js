@@ -11,16 +11,21 @@ class App extends Component {
     this.state = {
       Onibus: [],
       erro: false,
-      linha: 0,
+      linha: null,
+      direcao: 0,
     };
     this.getOnibus = this.getOnibus.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLinha = this.handleLinha.bind(this);
+    this.handleDirecao = this.handleDirecao.bind(this);
   }
  
-  handleSubmit(event) {
+  handleLinha(event) {
     console.log(event.target.value);
+    this.setState({
+      linha: event.target.value
+    })
     event.preventDefault();
-    this.getOnibus();
+    // this.getOnibus();
 
   }
  
@@ -41,6 +46,12 @@ class App extends Component {
     });
   }
 
+  handleDirecao(event){
+    console.log(event);
+    this.setState({
+      direcao: event.target.value
+    })
+  }
 
 
 
@@ -64,10 +75,10 @@ class App extends Component {
             <div className="columns box">       
               <div className="column is-2">
                 <p className="title is-4">Linhas</p>
-                <Buttons/>
+                <Buttons getBus={this.handleLinha}  getDir={this.handleDirecao}/>
               </div>
               <div className="column">
-                <ExibeOnibus/> 
+                <ExibeOnibus onibus={this.state.Onibus}/> 
               </div>
             </div>
           </div>
