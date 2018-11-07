@@ -3,9 +3,7 @@ import axios from 'axios';
 import Buttons from './components/Buttons';
 import ExibeOnibus from './components/ExibeOnibus';
 import 'bulma/css/bulma.css'
-import 'bulma/css/bulma.min.css'
-import 'bulma/css/bulma.css.map'
-
+import icon from './icons/icon.svg'
 
 class App extends Component {
   constructor(props) {
@@ -49,10 +47,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <section className="hero is-info">
+        <section className="hero is-warning">
           <div className="hero-body">
             <div className="container">
-            <h1 className="title">BRT Sul Horários</h1>  
+            
+            <h1 className="title"> <img src={icon} width="26px"/> BRT Sul Horários</h1>  
             
             </div>
           </div>
@@ -68,7 +67,7 @@ class App extends Component {
                 <Buttons/>
               </div>
               <div className="column">
-                  Y     
+                <ExibeOnibus/> 
               </div>
             </div>
           </div>

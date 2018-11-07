@@ -19,18 +19,18 @@ class Buttons  extends Component {
                         <br/>
                         <p className="title is-5">Gama</p>
                             
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2201">TR20 - Expressa</button>
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2202">TR21 - Paradora</button>
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2203">TR22 - L2 Sul/Norte</button>
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2205">2205 - W3 Sul</button><br/><br/>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2201">TR20 - Expressa</button>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2202">TR21 - Paradora</button>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2203">TR22 - L2 Sul/Norte</button>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2205">2205 - W3 Sul</button><br/><br/>
 
                         <p className="title is-5">Santa Maria</p>
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2301">TR25 - Expressa</button>
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2302">TR26 - Paradora</button>
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2203">2301 - W3 Sul</button><br/><br/>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2301">TR25 - Expressa</button>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2302">TR26 - Paradora</button>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2203">2301 - W3 Sul</button><br/><br/>
 
                         <p className="title is-5">ParkWay</p>
-                        <button className="button is-info ma is-fullwidth" type="submit" value="2207">2207 - W3 Sul</button>
+                        <button className="button is-warning ma is-fullwidth" type="submit" value="2207">2207 - W3 Sul</button>
 
                     </div>
                 
