@@ -25,8 +25,8 @@ class App extends Component {
       linha: event.target.value
     })
     event.preventDefault();
-    // this.getOnibus();
-
+    this.getOnibus();
+    
   }
  
   getOnibus() { 
@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   handleDirecao(event){
-    console.log(event);
+    console.log(event.target.value);
     this.setState({
       direcao: event.target.value
     })
@@ -62,7 +62,7 @@ class App extends Component {
           <div className="hero-body">
             <div className="container">
             
-            <h1 className="title"> <img src={icon} width="26px"/> BRT Sul Horários</h1>  
+            <h1 className="title"> <img src={icon} width="26px" height="26px"/> BRT Sul Horários</h1>  
             
             </div>
           </div>
@@ -78,7 +78,9 @@ class App extends Component {
                 <Buttons getBus={this.handleLinha}  getDir={this.handleDirecao}/>
               </div>
               <div className="column">
-                <ExibeOnibus onibus={this.state.Onibus}/> 
+                
+                  <ExibeOnibus onibus={this.state.Onibus} linha={this.state.linha} dir={this.state.direcao}/> 
+
               </div>
             </div>
           </div>

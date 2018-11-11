@@ -1,76 +1,76 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css'
+import '../css/style.css'
 
 class ExibeOnibus extends Component {
-
-    // this.exibeInfo = this.exibeInfo.bind(this);
-    // exibeInfo() {
-
-    //     this.props.onibus.array.forEach(element => {
-    //         console.log("Map");
-    //     });
-    // }
-
-
+    
     render() {
         
         // response.data.Dados.forEach(element => {
         //     console.log("Elemento[5]: " + element[5]);
         // });
-
         
+        const exibeBus = this.props.onibus.map((Bus, i) => {
+            
+             if(Bus[5] === this.props.linha && Bus[7] === this.props.dir) {
+                
+                return (
+                    <div>
+                        <div className="notification mt fs13">
+                            <div className="columns">
+                                <div className="column is-2">
+                                    <strong>Ônibus</strong> <br/>
+                                    Nº: {Bus[0]}<br/>
+                                    Lat: {Bus[2]}<br/>
+                                    Lng: {Bus[3]}<br/>
+                                    Última Atualização: {Bus[1].substring(10,16)}
+                                </div>
+                                <div className="column has-text-centered bl"> 
+                                    <strong>Tempo para  Estações</strong>
+                                    <div className="columns">
+                                        <div className="column">
+                                            <strong>Gama</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>Periquito</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>CAUB II</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>Catetinho</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>Granja do Ipê</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>SMPW 26</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>Vargem Bonita</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>Parkway</strong>
+                                        </div>
+                                        <div className="column">
+                                            <strong>Rod. Brasília</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
 
+        });
+        
+        
        
         return (
             <div>
                 <div className="tags has-addons"><span className="tag is-medium">Linha: {this.props.linha}</span></div>
-                <div className="columns has-text-centered">
-                        <div className="column">
-                            Numero Onibus <br/> 
-                            X
-                        </div>
-                        <div className="column">
-                            Ultima Atualização  <br/>
-                            X
-                        </div>
-                        <div className="column">
-                            Local <br/>
-                            Lat: Lng:
-                        </div>
-                </div>
-                <div className="columns has-text-centered">
-                    <div className="column">Tempo para as estações</div>            
-                </div>
-                <div className="columns has-text-centered">
-                    <div className="column">
-                        Gama
-                    </div>
-                    <div className="column">
-                        Periquito
-                    </div>
-                    <div className="column">
-                        CAUB II
-                    </div>
-                    <div className="column">
-                        Catetinho
-                    </div>
-                    <div className="column">
-                        Granja do Ipê
-                    </div>
-                    <div className="column">
-                        SMPW Quadra 26
-                    </div>
-                    <div className="column">
-                        Vargem Bonita
-                    </div>
-                    <div className="column">
-                        Parkway
-                    </div>
-                    <div className="column">
-                        Rod. Brasília
-                    </div>
-                    
-                </div>
+                {exibeBus}
             </div>
         )
     }

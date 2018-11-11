@@ -12,7 +12,7 @@ class Buttons  extends Component {
                    <div className="field">
                         <p className="title is-5">Sentido</p>
                         <form >
-                        <input type="radio" name="sentido" value="0" defaultChecked onClick={this.props.getDir}/> - IDA<br/>
+                        <input type="radio" name="sentido" value="0" onClick={this.props.getDir}/> - IDA<br/>
                         
                         <input type="radio" name="sentido" value="1" onClick={this.props.getDir}/> - VOLTA
                         </form>
