@@ -21,7 +21,7 @@ class ExibeOnibus extends Component {
                     <div className="column">
                         <strong>CAUB II</strong> <br/>
                             -15,954534, -48,007817
-
+                    
                     </div>
                 </div>
             );
