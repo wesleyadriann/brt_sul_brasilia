@@ -12,7 +12,7 @@ class App extends Component {
       Onibus: [],
       erro: false,
       linha: null,
-      direcao: 0,
+      direcao: "0",
     };
     this.getOnibus = this.getOnibus.bind(this);
     this.handleLinha = this.handleLinha.bind(this);
@@ -39,11 +39,7 @@ class App extends Component {
         });  
     },
     )
-    .catch(error => {
-      this.setState ({
-        erro: true,
-      })
-    });
+    
   }
 
   handleDirecao(event){
