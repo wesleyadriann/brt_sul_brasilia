@@ -30,7 +30,7 @@ class App extends Component {
   }
  
   getOnibus() { 
-    axios.get('http://00078.transdatasmart.com.br:7801/ITS-InfoExport/api/Data/VeiculosGTFS')
+    axios.get("http://00078.transdatasmart.com.br:7801/ITS-InfoExport/api/Data/VeiculosGTFS")
     .then(response => {
       // console.log("JSON: " + JSON.stringify(response.data));
 
@@ -70,7 +70,7 @@ class App extends Component {
           <div className="container" >
             <div className="columns box">       
               <div className="column is-2">
-                <p className="title is-4">Linhas</p>
+                
                 <Buttons getBus={this.handleLinha}  getDir={this.handleDirecao}/>
               </div>
               <div className="column">

@@ -6,6 +6,10 @@
     margin-top: 10px;
 }
 
+.mb{
+    margin-bottom: 20px;
+}
+
 .bl {
     border-left: 1px solid #c9c9c9;
     
@@ -14,4 +18,9 @@
 .fs13 {
     font-size: 13px;
     color: #707070;
+}
+
+.it {
+    background-color: hsl(48, 100%, 67%);
+    color: black;
 }

@@ -3,13 +3,14 @@ import 'bulma/css/bulma.css'
 import '../css/style.css'
 
 class ExibeOnibus extends Component {
-
-
+    
+    
 
     filtraEstacao() {
-        if(this.props.linha === ("2201" || "2202" || "2203" || "2205")) {
+        console.log("Dentro Filtra" + this.props.linha + typeof this.props.linha);
+        if(this.props.linha === "2201" || this.props.linha === "2202" || this.props.linha === "2203" || this.props.linha === "2205") {
             return(
-                <div>
+                <div className="columns">
                     <div className="column">
                         <strong>Gama</strong>   <br/>
                             -15,991743, -48,049292
@@ -25,15 +26,15 @@ class ExibeOnibus extends Component {
                     </div>
                 </div>
             );
-        }else if(this.props.linha === ("2301" || "2302" || "2203")) {
+        }else if(this.props.linha === "2301" ||  this.props.linha === "2302" || this.props.linha === "2301") {
             return (
-                <div>
+                <div className="columns">
                     <div className="column">
                         <strong>Santa Maria</strong> <br/>
                             -16,002359, -47,986283
                     </div>
                     <div className="column">
-                        <strong>Santos Dumont</strong> <br/>
+                        <strong>S. Dumont</strong> <br/>
                             -15,992820, -47,986125
                     </div>
                 </div>
@@ -48,10 +49,8 @@ class ExibeOnibus extends Component {
 
     render() {
         
-        // response.data.Dados.forEach(element => {
-        //     console.log("Elemento[5]: " + element[5]);
-        // });
         
+
         const exibeBus = this.props.onibus.map((Bus, i) => {
             
              if(Bus[5] === this.props.linha && Bus[7] === this.props.dir) {
@@ -67,59 +66,49 @@ class ExibeOnibus extends Component {
                                     Lng: {Bus[3]}<br/>
                                     Última Atualização: {Bus[1].substring(10,16)}
                                 </div>
-                                <div className="column has-text-centered bl"> 
-                                    <strong>Tempo para  Estações</strong>
-                                    <div className="columns">
+                                <div className="column has-text-centered"> 
+                                    <div className="mb"><strong >Tempo para  Estações</strong></div>
+                                    
+
+                                    <div className="columns bl">
+                                        
+                                        {this.filtraEstacao()}
 
                                         
-
-                                        {
-                                            
-
-
-
-
-
-
-
-
-
-                                            
-                                        }
-
+                                        
 
 
                                         
 
 
+                                        <div className="columns">    
+                                            <div className="column">
+                                                <strong>Catetinho</strong> <br/>
+                                                    -15,941982, -47,988077
 
-                                        <div className="column">
-                                            <strong>Catetinho</strong> <br/>
-                                                -15,941982, -47,988077
+                                            </div>
+                                            <div className="column">
+                                                <strong>Gran. do Ipê</strong> <br/>
+                                                    -15,922987, -47,975404
+                                            </div>
+                                            <div className="column">
+                                                <strong>SMPW 26</strong> <br/>
+                                                    -15,911208, -47,967636
 
+                                            </div>
+                                            <div className="column">
+                                                <strong>Varg. Bonita</strong> <br/>
+                                                    -15,890606, -47,961361
+                                            </div>
+                                            <div className="column">
+                                                <strong>Parkway</strong> <br/>
+                                                    -15,880099, -47,959782
+                                            </div>
+                                            <div className="column">
+                                                <strong>Rod. Brasília</strong> <br/>
+                                                    -15,794059, -47,882798
+                                            </div>
                                         </div>
-                                        <div className="column">
-                                            <strong>Granja do Ipê</strong> <br/>
-                                                -15,922987, -47,975404
-                                        </div>
-                                        <div className="column">
-                                            <strong>SMPW 26</strong> <br/>
-                                                -15,911208, -47,967636
-
-                                        </div>
-                                        <div className="column">
-                                            <strong>Vargem Bonita</strong> <br/>
-                                                -15,890606, -47,961361
-                                        </div>
-                                        <div className="column">
-                                            <strong>Parkway</strong> <br/>
-                                                -15,880099, -47,959782
-                                        </div>
-                                        <div className="column">
-                                            <strong>Rod. Brasília</strong> <br/>
-                                                -15,794059, -47,882798
-                                        </div>
-
 
                                     </div>
                                 </div>
