@@ -6,48 +6,41 @@ class ExibeOnibus extends Component {
     
     
 
-    filtraEstacao() {
-        console.log("Dentro Filtra" + this.props.linha + typeof this.props.linha);
-        if(this.props.linha === "2201" || this.props.linha === "2202" || this.props.linha === "2203" || this.props.linha === "2205") {
-            return(
-                <div className="columns">
-                    <div className="column">
-                        <strong>Gama</strong>   <br/>
-                            -15,991743, -48,049292
-                    </div>
-                    <div className="column">
-                        <strong>Periquito</strong> <br/>
-                            -15,967605, -48,022491
-                    </div>
-                    <div className="column">
-                        <strong>CAUB II</strong> <br/>
-                            -15,954534, -48,007817
-                    
-                    </div>
-                </div>
-            );
-        }else if(this.props.linha === "2301" ||  this.props.linha === "2302" || this.props.linha === "2301") {
+    filtraEstacao(estacoes) {
+        
+        // if(this.props.linha === "2201" || this.props.linha === "2202" || this.props.linha === "2203" || this.props.linha === "2205") {
+        const retorna = estacoes[0].map((x, i) => {
+            
             return (
-                <div className="columns">
+                
                     <div className="column">
-                        <strong>Santa Maria</strong> <br/>
-                            -16,002359, -47,986283
+                        <strong>{estacoes[0][i]}</strong> <br/>
+                        {estacoes[1][i]}
                     </div>
-                    <div className="column">
-                        <strong>S. Dumont</strong> <br/>
-                            -15,992820, -47,986125
-                    </div>
-                </div>
-            );
-        }else {
-            return 
-        }
 
+
+                
+            );
+
+
+
+        })
+
+        return retorna;
+        // }else if(this.props.linha === "2301" ||  this.props.linha === "2302" || this.props.linha === "2301") {
+        
+        
+        
+    
     }
+    
 
 
 
     render() {
+        
+        var gama = [["Gama", "Periquito", "CAUB II"], ["-15,991743, -48,049292", "-15,967605, -48,022491", "-15,954534, -48,007817"]];
+        var stMaria = [["Santa Maria", "S. Dumont"], ["-16,002359, -47,986283", "-15,992820, -47,986125"]];
         
         
 
@@ -66,22 +59,34 @@ class ExibeOnibus extends Component {
                                     Lng: {Bus[3]}<br/>
                                     Última Atualização: {Bus[1].substring(10,16)}
                                 </div>
-                                <div className="column has-text-centered"> 
+                                <div className="column has-text-centered bl"> 
                                     <div className="mb"><strong >Tempo para  Estações</strong></div>
                                     
 
-                                    <div className="columns bl">
+                                    <div className="columns">
                                         
-                                        {this.filtraEstacao()}
+                                        {
+                                        this.filtraEstacao(gama)
 
+                                        // if(this.props.linha === "2201" || this.props.linha === "2202" || this.props.linha === "2203" || this.props.linha === "2205") {
+                                        //     gama.map(() => {
+                                        //         return(
+                                                    
+                                        //         );
+                                        //     })
+                                        // }else{
+                                        //     stMaria.map(() => {
+                                        //         return(
+                                        //             <div className="column">
+                                        //                 <strong>{stMaria[0][i]}</strong> <br/>
+                                        //                 {stMaria[1][i]}
+                                        //             </div>
+                                        //         );
+                                        //     })
+                                        // }
+                                        }
                                         
-                                        
-
-
-                                        
-
-
-                                        <div className="columns">    
+                                        {/* <div className="columns">    
                                             <div className="column">
                                                 <strong>Catetinho</strong> <br/>
                                                     -15,941982, -47,988077
@@ -108,7 +113,7 @@ class ExibeOnibus extends Component {
                                                 <strong>Rod. Brasília</strong> <br/>
                                                     -15,794059, -47,882798
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                     </div>
                                 </div>

@@ -25,7 +25,7 @@ class Buttons  extends Component {
                         <button className="button is-warning ma is-fullwidth" value="2205" onClick={this.props.getBus}>2205 - W3 Sul</button><br/><br/> */}
                         <p className="title is-5">Linha</p>
                         <div className="select is-fullwidth is-warning ">
-                            <select onChange={this.props.getBus}>
+                            <select onChange={this.props.getBus} >
                                 
                                 <option className="it" disabled selected>Gama</option>
                                 <option className="sl" value="2201" >TR20 - Expressa</option>
