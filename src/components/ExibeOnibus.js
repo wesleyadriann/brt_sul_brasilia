@@ -8,12 +8,11 @@ class ExibeOnibus extends Component {
 
     filtraEstacao(gama, stMaria, pWay, est) {
         var estacoes = "";
-        if(this.props.linha.substring(4,5) === "G") estacoes = gama.concat(est);
+        if(this.props.linha.substring(4,5) === "G") estacoes = gama;
         else if (this.props.linha.substring(4,5) === "S") estacoes = stMaria;
         else estacoes = pWay;
-        console.log(estacoes);
-        const estacoesL = estacoes[0].map((x, i, j) => {
-            console.log(j);
+        const estacoesL = estacoes[0].map((x, i) => {
+            
                 return (
                     
                     <div className="column">
@@ -38,8 +37,10 @@ class ExibeOnibus extends Component {
 
 
         })
-        var retorna =  estacoesL + estacoesInter;
+
+        let retorna = Object.assign(estacoesL, estacoesInter);
         
+        console.log(retorna);
         return retorna;
     }  
         
