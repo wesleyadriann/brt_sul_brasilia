@@ -28,16 +28,16 @@ class Buttons  extends Component {
                             <select onChange={this.props.getBus} >
                                 
                                 <option className="it" disabled selected>Gama</option>
-                                <option className="sl" value="2201" >TR20 - Expressa</option>
-                                <option value="2202" >TR21 - Paradora</option>
-                                <option value="2203" >TR22 - L2 Sul/Norte</option>
-                                <option value="2205" >2205 - W3 Sul</option>
+                                <option className="sl" value="2201G" >TR20 - Expressa</option>
+                                <option value="2202G" >TR21 - Paradora</option>
+                                <option value="2203G" >TR22 - L2 Sul/Norte</option>
+                                <option value="2205G" >2205 - W3 Sul</option>
                                 <option className="it"disabled>Santa Maria</option>
-                                <option value="2301" >TR25 - Expressa</option>
-                                <option value="2302" >TR26 - Paradora</option>
-                                <option value="2301" >2301 - W3 Sul</option>
+                                <option value="2301S" >TR25 - Expressa</option>
+                                <option value="2302S" >TR26 - Paradora</option>
+                                <option value="2301S" >2301 - W3 Sul</option>
                                 <option className="it" disabled>ParkWay</option>                                
-                                <option value="2207" >2207 - W3 Sul</option>
+                                <option value="2207P" >2207 - W3 Sul</option>
                                                                 
                             </select>
                         </div>

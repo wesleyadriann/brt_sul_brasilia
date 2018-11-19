@@ -6,33 +6,50 @@ class ExibeOnibus extends Component {
     
     
 
-    filtraEstacao(estacoes) {
-        
-        // if(this.props.linha === "2201" || this.props.linha === "2202" || this.props.linha === "2203" || this.props.linha === "2205") {
-        const retorna = estacoes[0].map((x, i) => {
-            
-            return (
-                
+    filtraEstacao(gama, stMaria, pWay, est) {
+        var estacoes = "";
+        if(this.props.linha.substring(4,5) === "G") estacoes = gama.concat(est);
+        else if (this.props.linha.substring(4,5) === "S") estacoes = stMaria;
+        else estacoes = pWay;
+        console.log(estacoes);
+        const estacoesL = estacoes[0].map((x, i, j) => {
+            console.log(j);
+                return (
+                    
                     <div className="column">
                         <strong>{estacoes[0][i]}</strong> <br/>
                         {estacoes[1][i]}
                     </div>
 
 
-                
-            );
+                    
+                );
+            
+        })
 
+        const estacoesInter = est[0].map((x, i) => {
+            
+            return (
+                <div className="column">
+                    <strong>{est[0][i]}</strong> <br/>
+                    {est[1][i]}
+                </div>
+            )
 
 
         })
-
+        var retorna =  estacoesL + estacoesInter;
+        
         return retorna;
+    }  
+        
+        
         // }else if(this.props.linha === "2301" ||  this.props.linha === "2302" || this.props.linha === "2301") {
         
         
         
     
-    }
+    
     
 
 
@@ -41,13 +58,13 @@ class ExibeOnibus extends Component {
         
         var gama = [["Gama", "Periquito", "CAUB II"], ["-15,991743, -48,049292", "-15,967605, -48,022491", "-15,954534, -48,007817"]];
         var stMaria = [["Santa Maria", "S. Dumont"], ["-16,002359, -47,986283", "-15,992820, -47,986125"]];
+        var pWay = [["Park Way", "Pátio Brasil"],["-15,880099, -47,959782", "-15,796208, -47,891297"]]
+        var est = [["Catetinho", "Gran. do Ipê", "SMPW 26", "Varg. Bonita","Park Way", "Rod. Brasília"], ["-15,941982, -47,988077", "-15,922987, -47,975404", "-15,911208, -47,967636", "-15,890606, -47,961361","-15,880099, -47,959782", "-15,794059, -47,882798"]];
         
         
 
-        const exibeBus = this.props.onibus.map((Bus, i) => {
-            
-             if(Bus[5] === this.props.linha && Bus[7] === this.props.dir) {
-                
+        const exibeBus = this.props.onibus.map((Bus, i) => {   
+             if(Bus[5] === this.props.linha.substring(0,4) && Bus[7] === this.props.dir) {  
                 return (
                     <div>
                         <div className="notification mt fs13">
@@ -61,59 +78,10 @@ class ExibeOnibus extends Component {
                                 </div>
                                 <div className="column has-text-centered bl"> 
                                     <div className="mb"><strong >Tempo para  Estações</strong></div>
-                                    
-
                                     <div className="columns">
                                         
-                                        {
-                                        this.filtraEstacao(gama)
-
-                                        // if(this.props.linha === "2201" || this.props.linha === "2202" || this.props.linha === "2203" || this.props.linha === "2205") {
-                                        //     gama.map(() => {
-                                        //         return(
-                                                    
-                                        //         );
-                                        //     })
-                                        // }else{
-                                        //     stMaria.map(() => {
-                                        //         return(
-                                        //             <div className="column">
-                                        //                 <strong>{stMaria[0][i]}</strong> <br/>
-                                        //                 {stMaria[1][i]}
-                                        //             </div>
-                                        //         );
-                                        //     })
-                                        // }
-                                        }
+                                        {this.filtraEstacao(gama, stMaria, pWay, est)}
                                         
-                                        {/* <div className="columns">    
-                                            <div className="column">
-                                                <strong>Catetinho</strong> <br/>
-                                                    -15,941982, -47,988077
-
-                                            </div>
-                                            <div className="column">
-                                                <strong>Gran. do Ipê</strong> <br/>
-                                                    -15,922987, -47,975404
-                                            </div>
-                                            <div className="column">
-                                                <strong>SMPW 26</strong> <br/>
-                                                    -15,911208, -47,967636
-
-                                            </div>
-                                            <div className="column">
-                                                <strong>Varg. Bonita</strong> <br/>
-                                                    -15,890606, -47,961361
-                                            </div>
-                                            <div className="column">
-                                                <strong>Parkway</strong> <br/>
-                                                    -15,880099, -47,959782
-                                            </div>
-                                            <div className="column">
-                                                <strong>Rod. Brasília</strong> <br/>
-                                                    -15,794059, -47,882798
-                                            </div>
-                                        </div> */}
 
                                     </div>
                                 </div>
@@ -129,7 +97,7 @@ class ExibeOnibus extends Component {
        
         return (
             <div>
-                <div className="tags has-addons"><span className="tag is-medium">Linha: {this.props.linha}</span></div>
+                <div className="tags has-addons"><span className="tag is-medium">Linha: {this.props.linha.substring(0,4)}</span></div>
                 {exibeBus}
             </div>
         )

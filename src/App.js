@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       Onibus: [],
       erro: false,
-      linha: null,
+      linha: "",
       direcao: "0",
     };
     this.getOnibus = this.getOnibus.bind(this);
@@ -20,7 +20,7 @@ class App extends Component {
   }
  
   handleLinha(event) {
-    console.log(event.target.value);
+    
     this.setState({
       linha: event.target.value
     })
