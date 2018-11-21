@@ -15,8 +15,6 @@ class ExibeOnibus extends Component {
                     {pWay[1][i]}
                 </div> 
             )
-
-
         });
         
 
@@ -39,8 +37,6 @@ class ExibeOnibus extends Component {
                 </div>                    
             );
         })
-
-        // return estaçõesEsp,estacoesNor;
         return [estaçõesEsp, estacoesNor];
     }  
 
