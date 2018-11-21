@@ -4,56 +4,45 @@ import '../css/style.css'
 
 class ExibeOnibus extends Component {
     
-    
-
     filtraEstacao(gama, stMaria, pWay, est) {
         var estacoes = "";
         if(this.props.linha.substring(4,5) === "G") estacoes = gama;
         else if (this.props.linha.substring(4,5) === "S") estacoes = stMaria;
-        else estacoes = pWay;
-        const estacoesL = estacoes[0].map((x, i) => {
-            
-                return (
-                    
-                    <div className="column">
-                        <strong>{estacoes[0][i]}</strong> <br/>
-                        {estacoes[1][i]}
-                    </div>
+        else return pWay[0].map((x, i) => {
+            return (
+                <div className="column">
+                    <strong>{pWay[0][i]}</strong> <br/>
+                    {pWay[1][i]}
+                </div> 
+            )
 
 
-                    
-                );
-            
-        })
+        });
+        
 
-        const estacoesInter = est[0].map((x, i) => {
-            
+        let estacoesNor = est[0].map((x, i) => {
             return (
                 <div className="column">
                     <strong>{est[0][i]}</strong> <br/>
                     {est[1][i]}
                 </div>
             )
-
-
         })
 
-        let retorna = Object.assign(estacoesL, estacoesInter);
-        
-        console.log(retorna);
-        return retorna;
+
+        let estaçõesEsp =  estacoes[0].map((x, i) => {
+            
+            return (
+                <div className="column">
+                    <strong>{estacoes[0][i]}</strong> <br/>
+                    {estacoes[1][i]}
+                </div>                    
+            );
+        })
+
+        // return estaçõesEsp,estacoesNor;
+        return [estaçõesEsp, estacoesNor];
     }  
-        
-        
-        // }else if(this.props.linha === "2301" ||  this.props.linha === "2302" || this.props.linha === "2301") {
-        
-        
-        
-    
-    
-    
-
-
 
     render() {
         
@@ -91,11 +80,8 @@ class ExibeOnibus extends Component {
                     </div>
                 );
             }
-
         });
         
-        
-       
         return (
             <div>
                 <div className="tags has-addons"><span className="tag is-medium">Linha: {this.props.linha.substring(0,4)}</span></div>
