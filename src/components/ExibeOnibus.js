@@ -4,6 +4,10 @@ import '../css/style.css'
 
 class ExibeOnibus extends Component {
     
+    verificaLocal(est) {
+        // if(this.props.Bus[2] > )
+    }
+
     filtraEstacao(gama, stMaria, pWay, est) {
         var estacoes = "";
         if(this.props.linha.substring(4,5) === "G") estacoes = gama;
@@ -12,17 +16,22 @@ class ExibeOnibus extends Component {
             return (
                 <div className="column">
                     <strong>{pWay[0][i]}</strong> <br/>
-                    {pWay[1][i]}
+                    {pWay[1][i]}<p/>
+                    Tempo
                 </div> 
             )
         });
         
 
         let estacoesNor = est[0].map((x, i) => {
+            let nomeEst = est[0][i];
+            let latlngEst = est[1][i];
             return (
                 <div className="column">
-                    <strong>{est[0][i]}</strong> <br/>
-                    {est[1][i]}
+                    <strong>{nomeEst}</strong> <br/>
+                    {latlngEst}<p/>
+                    Tempo
+                    
                 </div>
             )
         })
@@ -33,7 +42,8 @@ class ExibeOnibus extends Component {
             return (
                 <div className="column">
                     <strong>{estacoes[0][i]}</strong> <br/>
-                    {estacoes[1][i]}
+                    {estacoes[1][i]}<p/>
+                    Tempo
                 </div>                    
             );
         })

@@ -13,7 +13,7 @@ class App extends Component {
       erro: false,
       linha: "",
       direcao: "0",
-      time: {}
+      time: []
     };
     this.getOnibus = this.getOnibus.bind(this);
     this.handleLinha = this.handleLinha.bind(this);
@@ -26,10 +26,10 @@ class App extends Component {
   }
 
   getTime() {
+    let coords = "wp.0=-15,900083,-47,962772&wp.1=-15,794059";
     const bingKey = "AqxO5kBZ9WGyR8O4QlMb47TAlKui5SZoE2Ggm62NrD2CiCbWxu3c-j_o63uXEgnp";
-    axios.get(`http://dev.virtualearth.net/REST/V1/Routes?wp.0=-15,900083,-47,962772&wp.1=-15,794059, -47,882798&key=${bingKey}`)
+    axios.get(`http://dev.virtualearth.net/REST/V1/Routes?${coords}, -47,882798&key=${bingKey}`)
     .then(response => {
-      console.log((response.data.resourceSets[0].resources[0]));
       this.setState({
         time: response.data.resourceSets[0].resources[0]
       });
@@ -62,10 +62,8 @@ class App extends Component {
     })
   }
 
-
-
   render() {
-    let tempoViagem = (this.state.time.travelDuration/60).toString();
+    // let tempoViagem = (this.state.time.travelDuration/60).toString();
     
     return (
       <div>
@@ -89,7 +87,8 @@ class App extends Component {
                 <Buttons getBus={this.handleLinha}  getDir={this.handleDirecao}/>
               </div>
               <div className="column">
-                  <div>Tempo Total: {tempoViagem.substring(0,2)} Minutos</div>
+                  {/* <div>Tempo Total: {tempoViagem.substring(0,2)} Minutos</div> */}
+                 
                   <ExibeOnibus onibus={this.state.Onibus} linha={this.state.linha} dir={this.state.direcao}/> 
 
               </div>
