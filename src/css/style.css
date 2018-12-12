@@ -7,7 +7,7 @@
 }
 
 .mb{
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .bl {
@@ -23,4 +23,9 @@
 .it {
     background-color: hsl(48, 100%, 67%);
     color: black;
+}
+
+.fs12 {
+    font-size: 12px;
+    color: #707070;
 }

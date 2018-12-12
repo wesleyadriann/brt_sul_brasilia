@@ -13,28 +13,11 @@ class App extends Component {
       erro: false,
       linha: "",
       direcao: "0",
-      time: []
     };
     this.getOnibus = this.getOnibus.bind(this);
     this.handleLinha = this.handleLinha.bind(this);
     this.handleDirecao = this.handleDirecao.bind(this);
-    this.getTime = this.getTime.bind(this);
-  }
-
-  componentDidMount() {
-    this.getTime();
-  }
-
-  getTime() {
-    let coords = "wp.0=-15,900083,-47,962772&wp.1=-15,794059";
-    const bingKey = "AqxO5kBZ9WGyR8O4QlMb47TAlKui5SZoE2Ggm62NrD2CiCbWxu3c-j_o63uXEgnp";
-    axios.get(`http://dev.virtualearth.net/REST/V1/Routes?${coords}, -47,882798&key=${bingKey}`)
-    .then(response => {
-      this.setState({
-        time: response.data.resourceSets[0].resources[0]
-      });
-    })
-    console.log(this.state.time);
+    
   }
 
   handleLinha(event) {
@@ -63,8 +46,7 @@ class App extends Component {
   }
 
   render() {
-    // let tempoViagem = (this.state.time.travelDuration/60).toString();
-    
+     
     return (
       <div>
         <section className="hero is-warning">
@@ -99,6 +81,7 @@ class App extends Component {
         <footer className="footer">
           <div className="content has-text-centered">
             Asd
+            
           </div>
         </footer>
       </div>
