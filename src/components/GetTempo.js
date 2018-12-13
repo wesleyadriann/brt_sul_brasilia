@@ -18,9 +18,11 @@ class GetTempo extends Component {
         let coords = `wp.0=${oni}&wp.1=${est}`;
         const bingKey = "AqxO5kBZ9WGyR8O4QlMb47TAlKui5SZoE2Ggm62NrD2CiCbWxu3c-j_o63uXEgnp";
         axios.get(`http://dev.virtualearth.net/REST/V1/Routes?${coords}&key=${bingKey}`)
+        // axios.get(`https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins=${oni}&destinations=${est}&travelMode=driving&key=${bingKey}`)
         .then(response => {
             this.setState({
-                tempo: response.data.resourceSets[0].resources[0].travelDurationTraffic,
+                tempo: response.data.resourceSets[0].resources[0].travelDurationTraffic/60,
+                // tempo : response.data.resourceSets[0].resources[0].results[0].travelDuration,
                 flag: true
             });
         })
@@ -40,7 +42,15 @@ class GetTempo extends Component {
     }
     
     render() {
-        let tempo = Number.parseInt(this.state.tempo/60) + " Min"
+        let tempo = null
+        if(Number.parseInt(this.state.tempo) <= 1) {
+            tempo = "Já";
+        }else {
+            tempo = Number.parseInt(this.state.tempo) + " Min";
+        }
+        
+        
+        // 
         window.setTimeout(this.willReRender,2000);
         return(
             <div> <i className="fs12">{tempo}</i> </div>
