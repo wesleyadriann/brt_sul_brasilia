@@ -36,11 +36,14 @@ class ExibeOnibus extends Component {
         if(this.props.linha.substring(4,5) === "G") estacoes = gama;
         else if (this.props.linha.substring(4,5) === "S") estacoes = stMaria;
         else return pWay[0].map((x, i) => {
+            let nomeEst = pWay[0][i];
+            let latlngEst = pWay[1][i];
+            let tempoEst = [];
+            tempoEst[i] = this.verificaLocal(latlngEst);
             return (
-                <div className="column">
-                    <strong>{pWay[0][i]}</strong> <br/>
-                    {pWay[1][i]}<p/>
-                    Tempo
+                <div className="column">                    
+                    <strong>{nomeEst}</strong> <br/>
+                    {tempoEst}<p/>
                 </div> 
             )
         });

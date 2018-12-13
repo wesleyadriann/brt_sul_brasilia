@@ -10,7 +10,7 @@ class GetTempo extends Component {
         }
         this.getTime = this.getTime.bind(this);
     };
-
+    
     getTime(oni, est) {
         
         let coords = `wp.0=${oni}&wp.1=${est}`;
