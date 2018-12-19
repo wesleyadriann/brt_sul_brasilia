@@ -28,3 +28,9 @@
 .fs12 {
     font-size: 12px;
 }
+
+.dftrans {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 14px;
+    font-weight: bolder
+}

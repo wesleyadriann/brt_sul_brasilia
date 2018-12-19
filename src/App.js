@@ -53,7 +53,7 @@ class App extends Component {
           <div className="hero-body">
             <div className="container">
             
-            <h1 className="title"> <img src={icon} width="26px" height="26px"/> BRT Sul Horários</h1>  
+            <h1 className="title"> <img src={icon} alt="Logo" width="26px" height="26px"/> BRT Sul Horários</h1>  
             
             </div>
           </div>
@@ -62,15 +62,14 @@ class App extends Component {
 
 
         
-          <div className="container" >
+          <div className="container">
             <div className="columns box">       
               <div className="column is-2">
                 
                 <Buttons getBus={this.handleLinha}  getDir={this.handleDirecao}/>
               </div>
               <div className="column">
-                  {/* <div>Tempo Total: {tempoViagem.substring(0,2)} Minutos</div> */}
-                 
+                  
                   <ExibeOnibus onibus={this.state.Onibus} linha={this.state.linha} dir={this.state.direcao}/> 
 
               </div>
@@ -78,10 +77,27 @@ class App extends Component {
           </div>
         
 
-        <footer className="footer">
+        <footer className="footer ">
           <div className="content has-text-centered">
-            Asd
-            
+            <div className="container">
+              <div className="columns ">
+                <div className="column">
+                  Os dados da localização dos ônibus são fornecidos pelo <a href="http://www.dftrans.df.gov.br" className="dftrans">DFTRANS</a>. <br/>
+                </div>
+                <div className="column">
+                
+                  <a href="https://bulma.io">
+                    <img src="https://bulma.io/images/made-with-bulma--black.png" alt="Made with Bulma" width="128" height="24"/>
+                  </a>
+                
+                </div>
+              </div>
+            </div> 
+              <div className="columns">
+                <div className="column">
+                  <p className="fs12">Copyright © Wesley Adriann de Souza - PixLogy - 2018 </p>
+                </div>
+              </div>
           </div>
         </footer>
       </div>

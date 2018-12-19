@@ -14,7 +14,6 @@ class ExibeOnibus extends Component {
         switch(this.props.dir) {
             case "0":
                     if(latOni < latEst) {
-                       
                         let tempo = <GetTempo coordsOni={this.latlngOnibus} coordsEst={est}/>
                         return tempo;
                     } else return "-";
@@ -24,9 +23,7 @@ class ExibeOnibus extends Component {
                     else {
                         let tempo = <GetTempo coordsOni={this.latlngOnibus} coordsEst={est}/>
                         return tempo;
-                    }
-
-                    
+                    }          
         }
     }
 
@@ -98,7 +95,7 @@ class ExibeOnibus extends Component {
         
 
         const exibeBus = this.props.onibus.map((Bus, i) => {   
-             if(Bus[5] === this.props.linha.substring(0,4) && Bus[7] === this.props.dir) {
+            if(Bus[5] === this.props.linha.substring(0,4) && Bus[7] === this.props.dir) {
                 this.latlngOnibus = Bus[2].replace(",",".") + "," + Bus[3].replace(",",".");
                 return (
                     <div>
